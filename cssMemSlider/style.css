@@ -1,0 +1,126 @@
+:root {
+    --mine-shaft: #202020;
+    --shark: #25282a;
+
+    --clr-main: var(--mine-shaft);
+} 
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--clr-main);
+}
+
+.container {
+    max-width: 1200px;
+    overflow: hidden;
+    width: 100%;
+    background-color: var(--shark);
+    padding: 15px;
+    padding-bottom: 45px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 17px 18px rgba(34, 60, 80, 0.2);
+}
+
+.slider {
+    max-width: 90%;
+    max-height: 500px;
+    margin: 0 auto 15px;
+    height: 100%;
+}
+
+.slider__item {
+    animation-name: fade;
+    animation-duration: .9s;
+    border-radius: 10px;
+    overflow: hidden;
+    will-change: contents;
+}
+
+.slider .slider__item img {
+    object-fit: contain;
+    width: 100%;
+    max-height: 500px;
+    height: 100%;
+}                                                                                               
+
+.slider__text {
+    color: #fff;
+    font-size: 2rem;
+    text-shadow: 1px 1px 1px var(--shark), 0 0 1em var(--shark); 
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+
+.slider-dots {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.slider-dots__item {
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color .6s ease;
+    display: block;
+}
+
+.slider__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.slider-dots__item:not(:last-child) {
+    margin-right: 2px;
+}
+
+.slider-dots__item input:checked,
+.slider-dots__item input:not(:checked) {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    display: block;
+    transition: background-color .6s ease;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.active,
+.slider-dots__item:hover,
+.slider-dots__item input:checked {
+    background-color: #0b66e0;
+}
+
+@keyframes fade {
+    from {
+        opacity: .4;
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1
+    }
+}
+
+@media (max-width: 480px) {
+    .slider__bottom {
+        flex-direction: column;
+    }
+
+    .slider__text {
+        order: 1;
+    }
+}
