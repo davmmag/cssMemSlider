@@ -8,7 +8,6 @@ const showSlides = n => {
     if (n < 1) slideIndex = SLIDES.length;
     for (i = 0; i < SLIDES.length; i++) {
         SLIDES[i].style.display = 'none';
-        // SLIDES[i].style.transform = 'translateX(100%)';
     }
     for (i = 0; i < DOTS.length; i++) {
         DOTS[i].classList.remove('active');
@@ -16,7 +15,6 @@ const showSlides = n => {
         DOTS[i].checked = false;
     }
     SLIDES[slideIndex - 1].style.display = 'block';
-    // SLIDES[slideIndex - 1].style.transform = 'translateX(0)';
     DOTS[slideIndex - 1].classList.add('active');
     DOTS[slideIndex - 1].firstElementChild.checked = true;
     DOTS[slideIndex - 1].checked = true;
@@ -28,5 +26,5 @@ showSlides(slideIndex);
 const currentSlide = n => showSlides(slideIndex = n);
 
 for(let i = 0; i < DOTS.length; i++) {
-    DOTS[i].addEventListener('click', () => currentSlide(i+1));
+    DOTS[i].addEventListener('click', () => currentSlide(i + 1));
 }
